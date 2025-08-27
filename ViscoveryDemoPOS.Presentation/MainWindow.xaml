@@ -1,0 +1,36 @@
+<Window x:Class="ViscoveryDemoPOS.Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ViscoveryDemoPOS.ViewModels"
+        xmlns:views="clr-namespace:ViscoveryDemoPOS.Presentation.Views"
+        xmlns:conv="clr-namespace:ViscoveryDemoPOS.Presentation.Converters"
+        Title="Viscovery Demo AP" Width="1280" Height="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <conv:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
+        <conv:BoolToBrushConverter x:Key="BoolToBrushConverter" />
+        <conv:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+    </Window.Resources>
+    <Grid Background="#0f172a">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Margin="16,0" VerticalAlignment="Center">
+            <TextBlock Text="prox" Foreground="White" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Text="Viscovery Demo AP" Foreground="White" FontSize="20" Margin="12,0,0,0" VerticalAlignment="Center"/>
+        </DockPanel>
+
+        <views:HomeView Grid.Row="1" Visibility="{Binding IsHome, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <views:MainPage Grid.Row="1" Visibility="{Binding IsHome, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+
+        <Border Grid.Row="2" Background="{Binding IsSuccessBanner, Converter={StaticResource BoolToBrushConverter}}"
+                Visibility="{Binding BannerMessage, Converter={StaticResource StringToVisibilityConverter}}">
+            <TextBlock Text="{Binding BannerMessage}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>

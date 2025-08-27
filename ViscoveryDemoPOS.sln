@@ -1,0 +1,51 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.Presentation", "ViscoveryDemoPOS.Presentation\ViscoveryDemoPOS.Presentation.csproj", "{5DCDDD21-28D5-47A7-90FB-CF5BDF1D6CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.ViewModels", "ViscoveryDemoPOS.ViewModels\ViscoveryDemoPOS.ViewModels.csproj", "{D192E554-2EC4-4626-83F0-7FC1562BEA56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.BLL", "ViscoveryDemoPOS.BLL\ViscoveryDemoPOS.BLL.csproj", "{F9FB09AD-4DAC-4F9B-A0AB-BAEF7E03B134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.DAL", "ViscoveryDemoPOS.DAL\ViscoveryDemoPOS.DAL.csproj", "{6AC6087B-93D4-4238-964D-DCC606063A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.Services", "ViscoveryDemoPOS.Services\ViscoveryDemoPOS.Services.csproj", "{81E2D725-CDFA-423D-9876-5334563B02A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViscoveryDemoPOS.Domain", "ViscoveryDemoPOS.Domain\ViscoveryDemoPOS.Domain.csproj", "{83CA2ED8-9D10-4626-89D4-EAA5FC85D35C}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {5DCDDD21-28D5-47A7-90FB-CF5BDF1D6CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {5DCDDD21-28D5-47A7-90FB-CF5BDF1D6CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {5DCDDD21-28D5-47A7-90FB-CF5BDF1D6CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {5DCDDD21-28D5-47A7-90FB-CF5BDF1D6CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+        {D192E554-2EC4-4626-83F0-7FC1562BEA56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {D192E554-2EC4-4626-83F0-7FC1562BEA56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {D192E554-2EC4-4626-83F0-7FC1562BEA56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {D192E554-2EC4-4626-83F0-7FC1562BEA56}.Release|Any CPU.Build.0 = Release|Any CPU
+        {F9FB09AD-4DAC-4F9B-A0AB-BAEF7E03B134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {F9FB09AD-4DAC-4F9B-A0AB-BAEF7E03B134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {F9FB09AD-4DAC-4F9B-A0AB-BAEF7E03B134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {F9FB09AD-4DAC-4F9B-A0AB-BAEF7E03B134}.Release|Any CPU.Build.0 = Release|Any CPU
+        {6AC6087B-93D4-4238-964D-DCC606063A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {6AC6087B-93D4-4238-964D-DCC606063A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {6AC6087B-93D4-4238-964D-DCC606063A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {6AC6087B-93D4-4238-964D-DCC606063A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+        {81E2D725-CDFA-423D-9876-5334563B02A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {81E2D725-CDFA-423D-9876-5334563B02A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {81E2D725-CDFA-423D-9876-5334563B02A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {81E2D725-CDFA-423D-9876-5334563B02A7}.Release|Any CPU.Build.0 = Release|Any CPU
+        {83CA2ED8-9D10-4626-89D4-EAA5FC85D35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {83CA2ED8-9D10-4626-89D4-EAA5FC85D35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {83CA2ED8-9D10-4626-89D4-EAA5FC85D35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {83CA2ED8-9D10-4626-89D4-EAA5FC85D35C}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+EndGlobal
