@@ -1,0 +1,27 @@
+<UserControl x:Class="ViscoveryDemoPOS.Presentation.Views.MainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Grid.Column="0" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HeadersVisibility="Column"
+                  Background="#111827" Foreground="White" RowBackground="#1f2937" AlternatingRowBackground="#111827">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="品名" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="代碼" Binding="{Binding Code}" Width="120"/>
+                <DataGridTextColumn Header="價格" Binding="{Binding Price}" Width="100"/>
+                <DataGridTextColumn Header="狀態" Binding="{Binding Status}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Column="1" Margin="16" VerticalAlignment="Top">
+            <Button Content="初始化 (Health + Config)" Command="{Binding InitCommand}" Height="44" Margin="0,0,0,8"/>
+            <Button Content="取得 QRCode" Command="{Binding GetQrCodeCommand}" Height="44" Margin="0,0,0,8"/>
+            <Button Content="啟用 Viscovery" Command="{Binding StartViscoveryCommand}" Height="44" Margin="0,0,0,8"/>
+            <Button Content="重置" Command="{Binding ResetCommand}" Height="44"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

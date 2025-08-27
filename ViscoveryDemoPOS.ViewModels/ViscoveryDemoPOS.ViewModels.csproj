@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViscoveryDemoPOS.Domain\ViscoveryDemoPOS.Domain.csproj" />
+    <ProjectReference Include="..\ViscoveryDemoPOS.Services\ViscoveryDemoPOS.Services.csproj" />
+    <ProjectReference Include="..\ViscoveryDemoPOS.BLL\ViscoveryDemoPOS.BLL.csproj" />
+    <ProjectReference Include="..\ViscoveryDemoPOS.DAL\ViscoveryDemoPOS.DAL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+</Project>
