@@ -5,6 +5,11 @@ using System.Windows.Data;
 
 namespace ViscoveryDemoPOS.Presentation.Converters
 {
+    /// <summary>
+    /// Converts an input string to a <see cref="Visibility"/> value.  Empty or
+    /// whitespace strings result in <see cref="Visibility.Collapsed"/>; otherwise
+    /// <see cref="Visibility.Visible"/> is returned.
+    /// </summary>
     public class StringToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

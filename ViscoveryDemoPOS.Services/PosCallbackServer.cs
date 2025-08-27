@@ -9,25 +9,51 @@ using ViscoveryDemoPOS.Domain;
 
 namespace ViscoveryDemoPOS.Services
 {
+    /// <summary>
+    /// Lightweight HTTP server used to receive callback notifications from the
+    /// POS system.  The server listens for checkout events and raises
+    /// <see cref="OnCheckoutReceived"/> when a list of items is posted to the
+    /// <c>/checkout</c> endpoint.
+    /// </summary>
     public class PosCallbackServer : IDisposable
     {
+        /// <summary>Underlying <see cref="HttpListener"/> instance.</summary>
         private readonly HttpListener _listener = new HttpListener();
+
         private CancellationTokenSource _cts;
+
+        /// <summary>
+        /// Fired when the POS system posts a checkout payload.  The event provides
+        /// the list of items that were purchased.
+        /// </summary>
         public event Action<List<CheckoutItem>> OnCheckoutReceived;
 
+        /// <summary>
+        /// Constructs the server and configures the listening prefix.
+        /// </summary>
+        /// <param name="prefix">URL prefix to listen on.</param>
         public PosCallbackServer(string prefix = "http://127.0.0.1:8080/visagent/")
         {
             _listener.Prefixes.Add(prefix);
         }
 
+        /// <summary>
+        /// Starts the HTTP listener and begins accepting requests.
+        /// </summary>
         public void Start()
         {
-            if (_listener.IsListening) return;
+            if (_listener.IsListening)
+                return;
+
             _cts = new CancellationTokenSource();
             _listener.Start();
             Task.Run(() => LoopAsync(_cts.Token));
         }
 
+        /// <summary>
+        /// Internal loop that processes incoming HTTP requests until cancellation
+        /// is requested.
+        /// </summary>
         private async Task LoopAsync(CancellationToken token)
         {
             while (!token.IsCancellationRequested)
@@ -56,6 +82,9 @@ namespace ViscoveryDemoPOS.Services
             }
         }
 
+        /// <summary>
+        /// Stops the listener and releases resources.
+        /// </summary>
         public void Dispose()
         {
             try { _cts?.Cancel(); } catch { }
