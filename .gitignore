@@ -1,0 +1,85 @@
+# =========================
+# Visual Studio / .NET 基本設定
+# =========================
+
+# Build 結果資料夾
+bin/
+obj/
+[Bb]uild/
+[Oo]ut/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# VS 快取
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# =========================
+# 編譯輸出檔案 (避免 DLL/EXE)
+# =========================
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.manifest
+*.appx
+*.appxrecipe
+*.tmp
+*.bak
+
+# =========================
+# 測試結果 / 套件
+# =========================
+TestResult*/
+*.VisualState.xml
+*.vsp
+*.vspscc
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+# 如果你要交付 packages，可移除下一行
+packages/
+
+# =========================
+# WPF 特有排除
+# =========================
+# 自動產生的資源檔
+*.g.cs
+*.g.i.cs
+*.baml
+*.resources
+*.Generated.cs
+
+# =========================
+# 其他建議
+# =========================
+# 不要排除 Assets/ (你放的 logo.png)
+!ViscoveryDemoPOS.Presentation/Assets/
+
+# OS 暫存檔
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# JetBrains Rider / ReSharper
+.idea/
+*.DotSettings.user
+
+# =========================
+# 如果你要用 Notion / 自動備份
+# 可另加專用忽略規則
+# =========================
