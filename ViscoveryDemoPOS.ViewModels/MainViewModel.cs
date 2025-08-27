@@ -12,15 +12,28 @@ using ViscoveryDemoPOS.DAL;
 
 namespace ViscoveryDemoPOS.ViewModels
 {
+    /// <summary>
+    /// Main view-model orchestrating interactions between the UI, VisAgent
+    /// service and local repositories.  Exposes commands used by the demo
+    /// application to initialize services, load sample QR codes and process
+    /// checkout results.
+    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         private readonly VisAgentApiClient _api;
         private readonly PosCallbackServer _server;
         private readonly IRecognitionLogRepository _logRepo;
+
+        /// <summary>List of items displayed on the UI grid.</summary>
         public ObservableCollection<ProductItem> Items { get; } = new ObservableCollection<ProductItem>();
+
+        /// <summary>Message shown on the banner area.</summary>
         public string BannerMessage { get; set; }
+
+        /// <summary>Flag indicating whether the banner should display success styling.</summary>
         public bool IsSuccessBanner { get; set; }
 
+        /// <summary>Indicates whether the home screen is currently visible.</summary>
         public bool IsHome { get; set; } = true;
 
         public ICommand InitCommand { get; private set; }
@@ -31,6 +44,9 @@ namespace ViscoveryDemoPOS.ViewModels
 
         private QrOrder _currentOrder;
 
+        /// <summary>
+        /// Initializes the view-model and wires up commands and services.
+        /// </summary>
         public MainViewModel()
         {
             _api = new VisAgentApiClient();
@@ -45,6 +61,9 @@ namespace ViscoveryDemoPOS.ViewModels
             StartScanningCommand = new RelayCommand(() => { IsHome = false; RaisePropertyChanged(nameof(IsHome)); });
         }
 
+        /// <summary>
+        /// Initializes external services and configures VisAgent.
+        /// </summary>
         private async Task InitAsync()
         {
             _server.Start();
@@ -60,6 +79,9 @@ namespace ViscoveryDemoPOS.ViewModels
             await _api.ConfigureAsync("http://127.0.0.1:8080");
         }
 
+        /// <summary>
+        /// Loads a predefined QR order used for demonstration purposes.
+        /// </summary>
         private void LoadDemoQr()
         {
             _currentOrder = new QrOrder
@@ -74,6 +96,9 @@ namespace ViscoveryDemoPOS.ViewModels
             RefreshGrid(_currentOrder.ExpectedItems);
         }
 
+        /// <summary>
+        /// Invokes the VisAgent unified recognition endpoint.
+        /// </summary>
         private async Task StartViscoveryAsync()
         {
             BannerMessage = "啟動影像辨識...";
@@ -81,6 +106,10 @@ namespace ViscoveryDemoPOS.ViewModels
             await _api.UnifiedRecognitionAsync(true, null);
         }
 
+        /// <summary>
+        /// Handles checkout callbacks from the POS system, merges the recognized
+        /// items with the expected order and logs the results.
+        /// </summary>
         private void OnCheckout(System.Collections.Generic.List<CheckoutItem> items)
         {
             var recognized = items
@@ -101,6 +130,9 @@ namespace ViscoveryDemoPOS.ViewModels
             RaisePropertyChanged(nameof(IsSuccessBanner));
         }
 
+        /// <summary>
+        /// Updates the observable collection bound to the UI grid.
+        /// </summary>
         private void RefreshGrid(System.Collections.Generic.IEnumerable<ProductItem> list)
         {
             Items.Clear();
@@ -108,6 +140,9 @@ namespace ViscoveryDemoPOS.ViewModels
             RaisePropertyChanged(nameof(Items));
         }
 
+        /// <summary>
+        /// Clears the current state and returns to the home screen.
+        /// </summary>
         private void Reset()
         {
             _currentOrder = null;
