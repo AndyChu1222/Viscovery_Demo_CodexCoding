@@ -38,11 +38,11 @@ namespace ViscoveryDemoPOS.ViewModels
             _logRepo = new RecognitionLogRepository();
             _server.OnCheckoutReceived += OnCheckout;
 
-            InitCommand = new RelayCommand(async _ => await InitAsync());
-            GetQrCodeCommand = new RelayCommand(_ => LoadDemoQr());
-            StartViscoveryCommand = new RelayCommand(async _ => await StartViscoveryAsync(), _ => _currentOrder != null);
-            ResetCommand = new RelayCommand(_ => Reset());
-            StartScanningCommand = new RelayCommand(_ => { IsHome = false; RaisePropertyChanged(nameof(IsHome)); });
+            InitCommand = new RelayCommand(async () => await InitAsync());
+            GetQrCodeCommand = new RelayCommand(() => LoadDemoQr());
+            StartViscoveryCommand = new RelayCommand(async () => await StartViscoveryAsync(), () => _currentOrder != null);
+            ResetCommand = new RelayCommand(() => Reset());
+            StartScanningCommand = new RelayCommand(() => { IsHome = false; RaisePropertyChanged(nameof(IsHome)); });
         }
 
         private async Task InitAsync()
